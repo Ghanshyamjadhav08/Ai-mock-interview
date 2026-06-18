@@ -1,9 +1,14 @@
+import { useNavigate } from "react-router-dom";
+
 const Results = () => {
   const questions = JSON.parse(localStorage.getItem("questions") || "[]");
 
   const answers = JSON.parse(localStorage.getItem("answers") || "[]");
 
   const score = Math.floor(Math.random() * 21) + 80;
+
+
+  const navigate = useNavigate()
 
   return (
     <div className="min-h-screen bg-slate-100 py-10">
@@ -46,7 +51,7 @@ const Results = () => {
 
         <div className="text-center mt-8">
           <button
-            onClick={() => (window.location.href = "/create-interview")}
+            onClick={() => navigate("/create-interview")}
             className="bg-blue-600 text-white px-6 py-3 rounded-xl hover:bg-blue-700"
           >
             Start New Interview
